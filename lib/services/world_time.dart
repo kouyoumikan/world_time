@@ -15,7 +15,7 @@ class WorldTime {
 
     try { // データ取得
       // make the response
-      http.Response response = await http.get('http://worldtimeapi.org/api/aaa/$url');
+      http.Response response = await http.get('http://worldtimeapi.org/api/timezone/$url');
       Map data = jsonDecode(response.body);
       //print((data));
 
@@ -32,8 +32,9 @@ class WorldTime {
       // set the time property(時間を設定する)
       time = now.toString();
     }
-    catch (e) { // データ取得の際、エラーが発生した時のイベント
+    catch (e) { // データ取得の際、エラーが発生時のイベント
       print("caught error: $e");
+      time = "could not get time data"; // app画面にエラーメッセージを表示
     }
   }
 
