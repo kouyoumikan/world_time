@@ -11,18 +11,18 @@ class _ChooseLocationState extends State<ChooseLocation> {
 
     // simulate network request for a username
     // (ユーザー名を取得し、ネットワーク要求をシュミレートする)
-    Future.delayed(Duration(seconds: 3), () { // 3秒後、コールバックメソッド起動する
-      print("yoshi");
+    String username =  await Future.delayed(Duration(seconds: 3), () {
+      return "yoshi"; // 3秒後、コールバックメソッド起動する
     });
 
     // simulate network request to get bio of the username
     // (ユーザー名の略歴を取得し、ネットワーク要求をシュミレートする)
-    Future.delayed(Duration(seconds: 2), () { // 2秒後、コールバックメソッド起動する
-      print("vegan, musician & egg collector"); // 伝記、ミュージシャンと卵コレクター
+    String bio =  await Future.delayed(Duration(seconds: 2), () { // 2秒後、コールバックメソッド起動する
+      return "vegan, musician & egg collector"; // 伝記、ミュージシャンと卵コレクター
     });
 
-    print("statement");
-  }
+    print("$username - $bio");
+}
 
   @override
   void initState() { // 初期化メソッド(最初に呼び出されるメソッド)
