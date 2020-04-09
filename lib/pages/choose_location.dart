@@ -7,12 +7,18 @@ class ChooseLocation extends StatefulWidget {
 
 class _ChooseLocationState extends State<ChooseLocation> {
 
-  int counter = 0;
+  void getData() { // データを取得する非同期メソッド
+
+    // simulate network request for a username(ユーザー名のネットワーク要求をシュミレートする)
+    Future.delayed(Duration(seconds: 3), () { // 3秒後、コールバックメソッド起動する
+      print("yoshi");
+    });
+  }
 
   @override
   void initState() { // 初期化メソッド(最初に呼び出されるメソッド)
     super.initState();
-    print("initState  function ran");
+    getData();
   }
 
   @override
@@ -29,10 +35,10 @@ class _ChooseLocationState extends State<ChooseLocation> {
       body: RaisedButton(
         onPressed: () {
           setState(() {
-            counter += 1;
+//            counter += 1;
           });
         },
-        child: Text("counter ie $counter"),
+//        child: Text("counter ie $counter"),
       ),
     );
   }
