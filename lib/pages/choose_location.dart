@@ -7,12 +7,21 @@ class ChooseLocation extends StatefulWidget {
 
 class _ChooseLocationState extends State<ChooseLocation> {
 
-  void getData() { // データを取得する非同期メソッド
+  void getData() async { // データを取得する非同期メソッド
 
-    // simulate network request for a username(ユーザー名のネットワーク要求をシュミレートする)
+    // simulate network request for a username
+    // (ユーザー名を取得し、ネットワーク要求をシュミレートする)
     Future.delayed(Duration(seconds: 3), () { // 3秒後、コールバックメソッド起動する
       print("yoshi");
     });
+
+    // simulate network request to get bio of the username
+    // (ユーザー名の略歴を取得し、ネットワーク要求をシュミレートする)
+    Future.delayed(Duration(seconds: 2), () { // 2秒後、コールバックメソッド起動する
+      print("vegan, musician & egg collector"); // 伝記、ミュージシャンと卵コレクター
+    });
+
+    print("statement");
   }
 
   @override
