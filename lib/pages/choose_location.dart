@@ -6,17 +6,34 @@ class ChooseLocation extends StatefulWidget {
 }
 
 class _ChooseLocationState extends State<ChooseLocation> {
+
+  int counter = 0;
+
+  @override
+  void initState() { // 初期化メソッド(最初に呼び出されるメソッド)
+    super.initState();
+    print("initState  function ran");
+  }
+
   @override
   Widget build(BuildContext context) {
+    print("build  function ran");
     return Scaffold(
       backgroundColor: Colors.grey[200],
-      appBar: AppBar(
+      appBar: AppBar( // アプリバーのデザイン
         backgroundColor: Colors.blue[900],
         title: Text("choose a Location"),
         centerTitle: true,
         elevation: 0,
       ),
-      body: Text("choose location screen"),
+      body: RaisedButton(
+        onPressed: () {
+          setState(() {
+            counter += 1;
+          });
+        },
+        child: Text("counter ie $counter"),
+      ),
     );
   }
 }
