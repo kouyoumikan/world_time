@@ -18,9 +18,14 @@ class _LoadingState extends State<Loading> {
 
     // get properties from data
     String datetime = data["datetime"]; // 日付・時刻
-    String offset = data["utc_offset"]; // オフセット
-    print(datetime);
+    String offset = data["utc_offset"].substring(1,3); // 部分文字列の作成
+    //print(datetime);
     print(offset);
+
+    //create DateTime object (文字列を日付/時刻オブジェクトに変換)
+    DateTime now = DateTime.parse(datetime);
+    //now.add(Duration(hours: offset))
+    //print(now);
   }
 
   @override
