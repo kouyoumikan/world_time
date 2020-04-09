@@ -13,6 +13,7 @@ class _LoadingState extends State<Loading> {
     http.Response response = await http.get('https://jsonplaceholder.typicode.com/todos/1');
     Map data = jsonDecode(response.body);
     print(data);
+    print(data["title"]);
   }
 
   @override
