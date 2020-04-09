@@ -9,17 +9,19 @@ class Loading extends StatefulWidget {
 
 class _LoadingState extends State<Loading> {
 
-  void getData() async { // データを取得する非同期メソッド
-    http.Response response = await http.get('https://jsonplaceholder.typicode.com/todos/1');
+  void getTime() async { // データを取得する非同期メソッド
+
+    // make the response
+    http.Response response = await http.get('http://worldtimeapi.org/api/timezone/Europe/London');
     Map data = jsonDecode(response.body);
-    print(data);
-    print(data["title"]);
+    print((data));
+
   }
 
   @override
   void initState() { // 初期化メソッド(最初に呼び出されるメソッド)
     super.initState();
-    getData();
+    getTime();
   }
 
   @override
