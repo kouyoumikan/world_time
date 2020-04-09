@@ -24,7 +24,7 @@ class _LoadingState extends State<Loading> {
 
     //create DateTime object
     DateTime now = DateTime.parse(datetime); // 文字列を日付/時刻オブジェクトに変換
-    now.add(Duration(hours: int.parse(offset))); // 文字列を整数に変換
+    now = now.add(Duration(hours: int.parse(offset))); // 文字列を整数に変換
     print(now);
   }
 
