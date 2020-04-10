@@ -30,6 +30,17 @@ class _ChooseLocationState extends State<ChooseLocation> {
         centerTitle: true,
         elevation: 0,
       ),
+      body: ListView.builder( // WorldTimeのListの中身を取得
+          itemCount: locations.length, // アイテムの数
+          itemBuilder: (context, index) { // アイテムの場所を取得
+            return Card(
+              child: ListTile( // リストタイル型のボックスを設置
+                onTap: () {},
+                title: Text(locations[index].location),
+              ),
+            );
+          }
+      ),
     );
   }
 }
