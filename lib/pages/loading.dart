@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:jp/services/world_time.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 class Loading extends StatefulWidget {
   @override
@@ -31,10 +32,13 @@ class _LoadingState extends State<Loading> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Padding(
-        padding: EdgeInsets.all(50.0),
-        child: Text("loading"), // app画面に取得した日付/時刻を表示
+    return Scaffold( // app画面にロード中のアニメーションを表示
+      backgroundColor: Colors.blue[900],
+      body: Center(
+        child: SpinKitRotatingCircle(
+          color: Colors.white,
+          size: 50.0,
+        ),
       ),
     );
   }
