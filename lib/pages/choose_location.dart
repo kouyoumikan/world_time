@@ -37,6 +37,9 @@ class _ChooseLocationState extends State<ChooseLocation> {
               child: ListTile( // リストタイル型のボックスを設置
                 onTap: () {},
                 title: Text(locations[index].location),
+                leading: CircleAvatar( // 丸いアバターを作成し、写真を配置
+                  backgroundImage: AssetImage("assets/${locations[index].flag}"),
+                ),
               ),
             );
           }
