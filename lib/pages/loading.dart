@@ -15,12 +15,12 @@ class _LoadingState extends State<Loading> {
     WorldTime instance = WorldTime(location: "Belin", flag: "germany.png", url: "Europe/Berlin");
     await instance.getTime(); // 内部の時間を設定して取得する
 
-//    // loading後にホーム画面へリダイレクト
-//    Navigator.pushReplacementNamed(context, "/home", arguments: {
-//      "location": instance.location,
-//      "flag": instance.flag,
-//      "time": instance.time,
-//    });
+    // loading後にホーム画面へリダイレクト
+    Navigator.pushReplacementNamed(context, "/home", arguments: {
+      "location": instance.location,
+      "flag": instance.flag,
+      "time": instance.time,
+    });
 
   }
 
