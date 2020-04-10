@@ -9,6 +9,9 @@ class WorldTime {
   String flag;     // url to an asset flag icon(フラグアイコンへのURL)
   String url;      // location url for api endpoint(APIエンドポイントのURL)
 
+  // 日中の時間かどうか判定(true は昼間, false は夜間)
+  bool isDaytime;  //  true or false if daytime or not
+
   // WorldTimeの新しいインスタンスを作成
   WorldTime({ this.location, this.flag, this.url });
 
@@ -29,6 +32,9 @@ class WorldTime {
       //create DateTime object
       DateTime now = DateTime.parse(datetime); // 文字列を日付/時刻オブジェクトに変換
       now = now.add(Duration(hours: int.parse(offset))); // 文字列を整数に変換
+
+      // 日中の時間の結果を取得(午前6時から午後8時の間の場合は、trueで昼間と判定)
+      isDaytime = now.hour > 6 && now.hour < 20 ? true : false;
 
       // set the time property(時間を設定する)
       time = DateFormat.jm().format(now); // 日付を00：00　AM/PM の形式に変換
