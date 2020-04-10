@@ -35,7 +35,7 @@ class _LoadingState extends State<Loading> {
     return Scaffold( // app画面にロード中のアニメーションを表示
       backgroundColor: Colors.blue[900],
       body: Center(
-        child: SpinKitRotatingCircle(
+        child: SpinKitCubeGrid(
           color: Colors.white,
           size: 50.0,
         ),
