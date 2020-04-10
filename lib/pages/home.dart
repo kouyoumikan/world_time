@@ -17,8 +17,10 @@ class _HomeState extends State<Home> {
 
     // set background(昼間か夜間の背景画像を設定)
     String bgImage = data["isDaytime"] ? "day.jpeg" : "night.jpeg";
+    Color bgColor = data["isDaytime"] ? Colors.blue : Colors.indigo[700];
 
     return Scaffold(
+      backgroundColor: bgColor, // アプリバー上の色を設定
       body: SafeArea(
         child: Container(
           decoration: BoxDecoration( // 背景画像の設定
