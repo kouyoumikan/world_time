@@ -33,12 +33,15 @@ class _ChooseLocationState extends State<ChooseLocation> {
       body: ListView.builder( // WorldTimeのListの中身を取得
           itemCount: locations.length, // アイテムの数
           itemBuilder: (context, index) { // アイテムの場所を取得
-            return Card(
-              child: ListTile( // リストタイル型のボックスを設置
-                onTap: () {},
-                title: Text(locations[index].location),
-                leading: CircleAvatar( // 丸いアバターを作成し、写真を配置
-                  backgroundImage: AssetImage("assets/${locations[index].flag}"),
+            return Padding( // リストタイル型のボックスの周りの間隔を開ける
+              padding: const EdgeInsets.symmetric(vertical: 1.0, horizontal: 4.0),
+              child: Card(
+                child: ListTile( // リストタイル型のボックスを設置
+                  onTap: () {},
+                  title: Text(locations[index].location),
+                  leading: CircleAvatar( // 丸いアバターを作成し、写真を配置
+                    backgroundImage: AssetImage("assets/${locations[index].flag}"),
+                  ),
                 ),
               ),
             );
