@@ -11,8 +11,9 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
+    // データが空でないか確認する
     // マップのデータを取得し、更新する
-    data = ModalRoute.of(context).settings.arguments;
+    data = data.isNotEmpty ? data : ModalRoute.of(context).settings.arguments;
     print(data);
 
     // set background(昼間か夜間の背景画像を設定)
@@ -34,8 +35,16 @@ class _HomeState extends State<Home> {
             child: Column(
               children: <Widget>[
                 FlatButton.icon(
-                    onPressed: () { // アイコンボタン押下時イベント
-                      Navigator.pushNamed(context, "/location");
+                    onPressed: () async { // アイコンボタン押下時イベント
+                      dynamic result = await  Navigator.pushNamed(context, "/location");
+                      setState(() { // 取得していたデータを上書きし、更新する
+                        data = {
+                          "time": result["time"],
+                          "location": result["location"],
+                          "isDaytime": result["isDaytime"],
+                          "flag": result["flag"],
+                        };
+                      });
                     },
                     icon: Icon(
                       Icons.edit_location,

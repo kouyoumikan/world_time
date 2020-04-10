@@ -19,6 +19,19 @@ class _ChooseLocationState extends State<ChooseLocation> {
     WorldTime(url: 'Asia/Jakarta', location: 'Jakarta', flag: 'indonesia.png'),
   ];
 
+  void updateTime(index) async { // データの更新時間を取得する非同期メソッド
+    WorldTime instance = locations[index]; // WorldTime Listの場所を保存するインスタンス
+    await instance.getTime(); // インスタンスの取得時間
+
+    // navigate to home screen(選択したWorldTimeのデータに更新し、ホーム画面へ移動する)
+    Navigator.pop(context, {
+      "location": instance.location,
+      "flag": instance.flag,
+      "time": instance.time,
+      "isDaytime": instance.isDaytime,
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     print("build  function ran");
@@ -38,7 +51,7 @@ class _ChooseLocationState extends State<ChooseLocation> {
               child: Card(
                 child: ListTile( // リストタイル型のボックスを設置
                   onTap: () { // リストタイル型を押下時のイベント
-                    print(locations[index].location);
+                    updateTime(index); // WorldTime Listの場所を呼び出す
                   },
                   title: Text(locations[index].location),
                   leading: CircleAvatar( // 丸いアバターを作成し、写真を配置
