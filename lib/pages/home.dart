@@ -23,7 +23,7 @@ class _HomeState extends State<Home> {
         child: Container(
           decoration: BoxDecoration( // 背景画像の設定
         image: DecorationImage( // アプリ画面全体に画像を配置
-              image: AssetImage("assets/night.jpeg"),
+              image: AssetImage("assets/$bgImage"),
               fit: BoxFit.cover, // アプリ画面全体をカバーする
             )
           ),
