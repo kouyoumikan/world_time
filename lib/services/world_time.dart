@@ -31,7 +31,7 @@ class WorldTime {
       now = now.add(Duration(hours: int.parse(offset))); // 文字列を整数に変換
 
       // set the time property(時間を設定する)
-      time = now.toString();
+      time = DateFormat.jm().format(now); // 日付を00：00　AM/PM の形式に変換
     }
     catch (e) { // データ取得の際、エラーが発生時のイベント
       print("caught error: $e");
