@@ -37,7 +37,9 @@ class _ChooseLocationState extends State<ChooseLocation> {
               padding: const EdgeInsets.symmetric(vertical: 1.0, horizontal: 4.0),
               child: Card(
                 child: ListTile( // リストタイル型のボックスを設置
-                  onTap: () {},
+                  onTap: () { // リストタイル型を押下時のイベント
+                    print(locations[index].location);
+                  },
                   title: Text(locations[index].location),
                   leading: CircleAvatar( // 丸いアバターを作成し、写真を配置
                     backgroundImage: AssetImage("assets/${locations[index].flag}"),
