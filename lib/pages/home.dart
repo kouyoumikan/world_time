@@ -26,6 +26,19 @@ class _HomeState extends State<Home> {
                 icon: Icon(Icons.edit_location),
                 label: Text("Edit Location"),
             ),
+            SizedBox(height: 20.0),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Text(
+                  data["location"],
+                  style: TextStyle(
+                    fontSize: 28.0,
+                    letterSpacing: 2.0,
+                  ),
+                ),
+              ],
+            ),
           ],
         ),
       ),
